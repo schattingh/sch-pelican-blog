@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if articles %}
+  <main class="wrapper">
+    {% for article in articles_page.object_list %}
+      <article>
+        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+        <p class="article-date">{{ article.date|strftime('%d %b %Y') }}</p>
+        <p class="inline article-summary">{{ article.summary|striptags }}</p>
+        {% if article.tags %}
+        <ul class="inline-list article-tags">
+          {% for tag in article.tags %}
+          <li>
+            <a href="{{ SITEURL }}/{{ tag.url }}">&#35;{{ tag|lower }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </article>
+    {% endfor %}
+    </main>
+  {% endif %}
+{% endblock %}
