@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
+{% block content_title %}
+<h2>Recent Posts</h2>
+{% endblock %}
+
 {% block content %}
   {% if articles %}
   <main class="wrapper">
     {% for article in articles_page.object_list %}
       <article>
-        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+        <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
         <p class="article-date">{{ article.date|strftime('%d %b %Y') }}</p>
         <p class="inline article-summary">{{ article.summary|striptags }}</p>
         {% if article.tags %}

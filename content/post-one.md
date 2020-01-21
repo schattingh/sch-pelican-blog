@@ -2,7 +2,7 @@ Title: Post One
 Date: 2020-01-11 13:55
 Modified: 2020-01-11 13:55
 Category: Python
-Tags: python, devops, cloud, aws
+Tags: python, cloud, aws
 Slug: post-one
 Authors: Carl Hattingh
 Summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
