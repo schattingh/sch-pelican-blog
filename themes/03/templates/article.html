@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
+
+{% block content %}
+<main class="wrapper">
+  <article>
+    <h3>
+      <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+    </h3>
+    <p class="article-date">Published {{ article.date|strftime('%d %b %Y') }}
+    {% if article.authors %}
+      {% for author in article.authors %}
+        by <a class="" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+      {% endfor %}
+    {% endif %}
+    </p>
+    <p class="article-content">{{ article.content|striptags }}</p>
+    {% if article.tags %}
+    <ul class="inline-list article-tags">
+      {% for tag in article.tags %}
+      <li>
+        <a href="{{ SITEURL }}/{{ tag.url }}">&#35;{{ tag|lower }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </article>
+
+</main>
+{% endblock %}

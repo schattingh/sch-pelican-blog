@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SCH</title>
+  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="site.webmanifest">
@@ -35,7 +35,7 @@
       </nav>
     </div>
     <div class="header-flexbox header-bottom">
-        {% block content_title %}{% endblock %}
+        <!-- {% block content_title %}{% endblock %} -->
       <nav>
         <ul class="inline-list">
           <li>
