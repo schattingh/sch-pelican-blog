@@ -38,10 +38,6 @@ def agf(content_generators):
                         print(paths)
                         print('\n')
                         strpath = ', '.join(paths)
-                        #print(strpaths)
-                        #print('\n')
-                        #print('\n')
-                        #print('\n')
                         img['srcset'] = strpath
                         img['src'] = f'{siteurl}/imgs/{max_width}/{hash}.jpg'
                         # create image
@@ -59,7 +55,6 @@ def create_responsive_images(source_image_path, hash, widths, image_output_path)
             with Image.open(source_image_path) as img:
                 size = img.size
                 newheight = round(int(width) / size[0] * size[1], 0)
-                #print(f'Width: {width}, Height: {newheight}')
                 opt_img = img.resize((int(width), int(newheight)), resample=Image.LANCZOS)
                 opt_img.save(f'{width_path}/{hash}.jpg', quality=90, progressive=True)
 
