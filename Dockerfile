@@ -1,21 +1,22 @@
-FROM debian:buster-slim
+FROM python:3-slim
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
   apt-get install \
   ca-certificates \
+  cmake gcc \
   curl \
-  jq \
-  python3 \
-  python3-pip \
-  python3-setuptools \
-  python3-wheel \
+  libjpeg62-turbo-dev \
   wget \
+  zlib1g-dev \
   --no-install-recommends -y
 
-RUN pip3 install pelican[Markdown] -q
+#  Install from source to use jpeg-turbo
+RUN pip install Pillow --no-binary :all:
+
+RUN pip install pelican[Markdown] beautifulsoup4
 
 WORKDIR /app
 
-CMD [ "/bin/bash" ]
+CMD [ "pelican", "content", "-s", "pelicanconf.py", "-v", "-r", "-l", "-b", "0.0.0.0" ]

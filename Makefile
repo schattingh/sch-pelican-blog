@@ -1,14 +1,14 @@
-NAME = `basename ${CURDIR}`
 build:
-	@docker build . -t ${NAME}
+	docker-compose build
 
 pelican:
-	@docker run -it --rm \
-	-v ${CURDIR}:/app \
-	-p 8000:8000 \
-	${NAME} pelican content -s pelicanconf.py -v -r -l -b 0.0.0.0
+	docker-compose up
 
-cli:
-	@docker run -it --rm \
-	-v ${CURDIR}:/app \
-	${NAME}
+down:
+	docker-compose down
+
+shell:
+	docker-compose run --rm --service-ports pelican bash
+
+clean:
+	rm -fr output/*

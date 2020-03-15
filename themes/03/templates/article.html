@@ -15,7 +15,9 @@
       {% endfor %}
     {% endif %}
     </p>
-    <p class="article-content">{{ article.content|striptags }}</p>
+    <div class="article-content">
+      {{ article.content }}
+    </div>
     {% if article.tags %}
     <ul class="inline-list article-tags">
       {% for tag in article.tags %}

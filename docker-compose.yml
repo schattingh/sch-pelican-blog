@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  pelican:
+    build:
+      context: .
+    image: "pelican"
+    working_dir: "/app"
+    volumes:
+      - ".:/app"
+      #- "~/Documents/github/pelican/pelican:/usr/local/lib/python3.8/site-packages/pelican"
+    ports:
+      - 8000:8000
